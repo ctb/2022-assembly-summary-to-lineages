@@ -27,9 +27,10 @@ def main():
     taxfoo.load_names_dmp(args.names_dmp)
 
     w = csv.writer(args.output)
-    w.writerow(['accession', 'taxid'] + want_taxonomy)
+    w.writerow(['ident', 'taxid'] + want_taxonomy)
 
     for filename in args.assembly_summary_files:
+        print(f"reading assembly summary file from '{filename}'")
         r = csv.reader(open(filename, newline=""), delimiter='\t')
 
         count = 0
